@@ -1,7 +1,8 @@
 # SafeStake: Running an Operator Node (on going)
 
 {% hint style="danger" %}
-**Updates happen frequently! Our** [**Github**](https://github.com/ParaState/SafeStakeOperator) **always has the latest operator node resources and setup instructions.**
+**Updates happen frequently! Our** [**Github**](https://github.com/ParaState/SafeStakeOperator) **always has the latest
+operator node resources and setup instructions.**
 {% endhint %}
 
 **Operators must first set up a SafeStake Service Provider Node**
@@ -14,7 +15,9 @@ The SafeStake service provider contains several components:
 
 **Root Node Service**
 
-The duty agreement among operators uses Hotstuff consensus and runs on a p2p network. This requires operators to know each other's IP addresses. For this purpose, SafeStake runs and maintains a root node that operators can consult and use to join the p2p network.
+The duty agreement among operators uses Hotstuff consensus and runs on a p2p network. This requires operators to know
+each other's IP addresses. For this purpose, SafeStake runs and maintains a root node that operators can consult and use
+to join the p2p network.
 
 **Dependencies**
 
@@ -22,14 +25,14 @@ The duty agreement among operators uses Hotstuff consensus and runs on a p2p net
 
 * Public Static Network IP
 * Hardware(recommend)
-  * CPU: 16
-  * Memory: 32G
-  * Disk: 600GB
+    * CPU: 16
+    * Memory: 32G
+    * Disk: 600GB
 * OS
-  * Unix
+    * Unix
 * Software
-  * Docker
-  * Docker Compose
+    * Docker
+    * Docker Compose
 
 **Set firewall rule**
 
@@ -55,7 +58,7 @@ Install Docker and Docker Compose
 Build root node:
 
 ```
-sudo docker compose build -f docker-compose-boot.yml build
+sudo docker compose -f docker-compose-boot.yml build
 ```
 
 **Start Service**
@@ -63,7 +66,7 @@ sudo docker compose build -f docker-compose-boot.yml build
 Run the following to start the root node service:
 
 ```
-sudo docker compose build -f docker-compose-boot.yml up -d
+sudo docker compose -f docker-compose-boot.yml up -d
 ```
 
 Get root node enr
@@ -74,9 +77,11 @@ docker-compose -f docker-compose-boot.yml logs -f dvf_root_node | grep enr
 
 output
 
-> dvf-dvf\_root\_node-1 | Base64 ENR: _enr:-IS4QNa-kpJM1eWfueeEnY2iXlLAL0QY2gAWAhmsb4c8VmrSK9J7N5dfXS\_DgSASCDrUTHMqMUlP4OXSYEVh-Z7zFHkBgmlkgnY0gmlwhAMBnbWJc2VjcDI1NmsxoQPKY0yuDUmstAHYpMa2\_oxVtw0RW\_QAdpzBQA8yWM0xOIN1ZHCCIy0_
+> dvf-dvf\_root\_node-1 | Base64 ENR: _enr:
+-IS4QNa-kpJM1eWfueeEnY2iXlLAL0QY2gAWAhmsb4c8VmrSK9J7N5dfXS\_DgSASCDrUTHMqMUlP4OXSYEVh-Z7zFHkBgmlkgnY0gmlwhAMBnbWJc2VjcDI1NmsxoQPKY0yuDUmstAHYpMa2\_oxVtw0RW\_QAdpzBQA8yWM0xOIN1ZHCCIy0_
 
-_**NOTE:**_** ** SafeStake will maintain the ENR(s) of the root node(s) on its website so that users registering as operators can utilize them to start operator nodes_**.**_
+_**NOTE:**_** ** SafeStake will maintain the ENR(s) of the root node(s) on its website so that users registering as
+operators can utilize them to start operator nodes_**.**_
 
 {% hint style="success" %}
 **`<The SafeStake Service Provider is now installed/>`**
@@ -90,14 +95,14 @@ _**NOTE:**_** ** SafeStake will maintain the ENR(s) of the root node(s) on its w
 
 * Public Static Network IP
 * Hardware(recommend)
-  * CPU: 16
-  * Memory: 32G
-  * Disk: 600GB
+    * CPU: 16
+    * Memory: 32G
+    * Disk: 600GB
 * OS
-  * Unix
+    * Unix
 * Software
-  * Docker
-  * Docker Compose
+    * Docker
+    * Docker Compose
 
 #### Set firewall rule
 
@@ -166,8 +171,6 @@ cp .env.example .env
 
 Fill your WS\_URL
 
-
-
 #### Or get your alchemy ws\_url
 
 * Follow the document [https://docs.alchemy.com/reference/api-overview](https://docs.alchemy.com/reference/api-overview)
@@ -196,8 +199,6 @@ vim .env
 
 Fill your WS\_URL
 
-
-
 ### Run
 
 #### Run your operator
@@ -214,7 +215,8 @@ sudo docker compose -f docker-compose-operator.yml logs -f operator | grep "node
 
 output
 
-> dvf-operator-1 | \[2022-08-13T16:01:33.814Z INFO dvf::node::node] node public key Al0wMNz3JpkYDH7HVp93dZfLMt1GJHypLfhwOWS0NwC/
+> dvf-operator-1 | \[2022-08-13T16:01:33.814Z INFO dvf::node::node] node public key
+> Al0wMNz3JpkYDH7HVp93dZfLMt1GJHypLfhwOWS0NwC/
 
 #### Back up your operator private key file
 
