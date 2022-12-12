@@ -10,6 +10,8 @@ services:
     command: [
       "--${GETH_NETWORK}",
       "--syncmode=full",
+      # https://ethereum.stackexchange.com/questions/131757/geth-error-fatal-database-has-receipts-with-a-legacy-format
+      "--ignore-legacy-receipts",
       "--http",
       "--http.addr=0.0.0.0",
       "--http.vhosts=*",
