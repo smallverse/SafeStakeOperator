@@ -3,6 +3,7 @@ services:
   geth:
     image: ethereum/client-go:v1.10.25
     pull_policy: always
+    restart: unless-stopped
     network_mode: "host"
     volumes:
       - jwt-data:/data/jwt
@@ -35,10 +36,22 @@ services:
       - "8547"
       - "8551"
       - "30303"
+
+  mev-boost:
+    image: flashbots/mev-boost:v1.4.0
+    network_mode: "host"
+    pull_policy: always
+    restart: unless-stopped
+    command: -${GETH_NETWORK} -relays ${MEV_BOOST_RELAYS}
+    expose:
+      - "18550"
+
+
   lighthouse:
     network_mode: "host"
     image: sigp/lighthouse:v3.1.0
     pull_policy: always
+    restart: unless-stopped
     volumes:
       - geth-data:/data/geth
       - jwt-data:/data/jwt
@@ -46,7 +59,9 @@ services:
     command:
       [
         "lighthouse",
+        #lighthouse bn --builder https://mainnet-builder.test
         "bn",
+        "--builder=http://127.0.0.1:18550",
         "--network=${LIGHTHOUSE_NETWORK}",
         "--datadir=/data/lighthouse",
         # "--jwt-secrets=/data/jwt/jwtsecret",
@@ -70,8 +85,11 @@ services:
     expose:
       - "5052"
       - "9000"
+
     depends_on:
       geth:
+        condition: service_started
+      mev-boost:
         condition: service_started
   operator:
     network_mode: "host"
@@ -79,6 +97,8 @@ services:
       - operator-data:/root/.lighthouse
     image: parastate/dvf-operator:${IMAGE_TAG}
     pull_policy: always
+    restart: unless-stopped
+    #lighthouse vc --builder-proposals
     command:
       - /bin/sh
       - -c
