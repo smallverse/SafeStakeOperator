@@ -80,8 +80,7 @@ output
 > dvf-dvf\_root\_node-1 | Base64 ENR: _enr:
 -IS4QNa-kpJM1eWfueeEnY2iXlLAL0QY2gAWAhmsb4c8VmrSK9J7N5dfXS\_DgSASCDrUTHMqMUlP4OXSYEVh-Z7zFHkBgmlkgnY0gmlwhAMBnbWJc2VjcDI1NmsxoQPKY0yuDUmstAHYpMa2\_oxVtw0RW\_QAdpzBQA8yWM0xOIN1ZHCCIy0_
 
-_**NOTE:**_** ** SafeStake will maintain the ENR(s) of the root node(s) on its website so that users registering as
-operators can utilize them to start operator nodes_**.**_
+_**NOTE:**_\*\* \*\* SafeStake will maintain the ENR(s) of the root node(s) on its website so that users registering as operators can utilize them to start operator nodes\_**.**\_
 
 {% hint style="success" %}
 **`<The SafeStake Service Provider is now installed/>`**
@@ -152,14 +151,14 @@ cp .env.example .env
 #### Get your Infura WS\_URL
 
 * Follow the instructions found at [https://docs.infura.io/infura/](https://docs.infura.io/infura/)
-* Create Infura account (or other Ethereum api service providers)&#x20;
+* Create Infura account (or other Ethereum api service providers)
 * Create new key
 
 <figure><img src=".gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
 
 * Select 'Goerli' network
 
-<figure><img src=".gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (10) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Select Websock
 
