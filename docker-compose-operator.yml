@@ -100,7 +100,7 @@ services:
     volumes:
       - geth-data:/data/geth
       - jwt-data:/data/jwt
-      - lighthouse-data:/data/lighthouse-vc
+      - lighthouse-data-vc:/data/lighthouse-vc
     command:
       [
         "lighthouse",
@@ -152,6 +152,12 @@ volumes:
       o: bind
       type: none
       device: /data/lighthouse
+  lighthouse-data-vc:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /data/lighthouse-vc
   jwt-data:
     driver: local
     driver_opts:
