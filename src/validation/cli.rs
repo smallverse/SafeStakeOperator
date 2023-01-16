@@ -326,7 +326,7 @@ pub fn cli_app<'a, 'b>() -> App<'a, 'b> {
         ).arg(
         Arg::with_name("gas-limit")
             .long("gas-limit")
-            .value_name("INTEGER")
+            .value_name("GAS_LIMIT_INTEGER")
             .takes_value(true)
             .help("The gas limit to be used in all builder proposals for all validators managed \
                     by this validator client. Note this will not necessarily be used if the gas limit \
